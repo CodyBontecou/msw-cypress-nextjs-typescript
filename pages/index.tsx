@@ -15,7 +15,8 @@ interface Props {
 
 export const getStaticProps: GetStaticProps = async () => {
   const res = await fetch('https://jsonplaceholder.typicode.com/posts')
-  const posts: Post[] = await res.json()
+  const posts = await res.json()
+  console.log(res)
 
   if (!posts) {
     return {
@@ -28,13 +29,13 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 }
 
-export default function Home(props: Props) {
-  if (props.notFound) {
+export default function Home({ posts }: { posts: Post[] }) {
+  if (!posts) {
     return <>Error</>
-  } else if (props.posts) {
+  } else if (posts) {
     return (
       <ul>
-        {props.posts.map(post => (
+        {posts.map(post => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>
