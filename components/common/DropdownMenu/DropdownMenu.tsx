@@ -8,17 +8,24 @@ const DropdownMenu: FC = () => {
 
   return (
     <div
+      id="dropdownMenu"
       className="relative cursor-pointer"
       onClick={() => setExpanded(!expanded)}
     >
       <Avatar />
       {expanded && (
         <div
-          className={`absolute -ml-10 p-4 rounded-lg bg-white ${s.dropdownShadow}`}
+          className={`absolute -ml-10 p-4 rounded-lg bg-white shadow-lg border border-gray-100`}
         >
           <div className="mx-20px flex flex-col items-start justify-center">
-            <div className="font-normal text-xl leading-5">name</div>
-            <div className="mt-1 mr-1 font-bold leading-4">number</div>
+            <Link href="/">
+              <a className="leading-5" data-test="dropdown-home">
+                Home
+              </a>
+            </Link>
+            <Link href="/about">
+              <a className="mt-2 leading-5">About</a>
+            </Link>
           </div>
         </div>
       )}
