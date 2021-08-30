@@ -23,7 +23,8 @@
     "**/*.ts",
     "**/*.tsx",
     "jest.config.ts",
-    "mocks/index.ts"
+    "mocks/index.ts",
+    "mocks/browser.js"
   ],
   "exclude": ["node_modules"]
 }
